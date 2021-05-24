@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Guillermo Muntaner Perelló on 16/06/2019.
 //
@@ -22,13 +22,13 @@ public struct UserDefault<Value: PropertyListValue> {
     let key: String
     let defaultValue: Value
     var userDefaults: UserDefaults
-    
+
     public init(_ key: String, defaultValue: Value, userDefaults: UserDefaults = .standard) {
         self.key = key
         self.defaultValue = defaultValue
         self.userDefaults = userDefaults
     }
-    
+
     public var wrappedValue: Value {
         get {
             return userDefaults.object(forKey: key) as? Value ?? defaultValue
@@ -70,9 +70,9 @@ extension UInt32: PropertyListValue {}
 extension UInt64: PropertyListValue {}
 extension Double: PropertyListValue {}
 extension Float: PropertyListValue {}
-#if os(macOS)
-extension Float80: PropertyListValue {}
-#endif
+// #if os(macOS)
+// extension Float80: PropertyListValue {}
+// #endif
 
 extension Array: PropertyListValue where Element: PropertyListValue {}
 
